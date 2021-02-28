@@ -47,13 +47,15 @@ export default {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  box-shadow: 0px 0px 2px #000000;
+  box-shadow: 0px 0px 1px #000000;
   .user-wrap {
     display: flex;
     align-items: center;
   }
   .user-name {
     line-height: 40px;
+    cursor: pointer;
+    user-select: none;
   }
 }
 .el-aside {

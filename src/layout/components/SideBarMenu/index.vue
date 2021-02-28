@@ -1,35 +1,32 @@
 <template>
   <div>
     <el-menu :default-active="currentPath" router>
-      <template v-for="(item, index) in routes">
-        <el-menu-item
-          v-if="item.children && item.children.length === 1"
-          :index="item.children[0].path"
-          :key="index"
-        >
-          <i class="el-icon-menu"></i>
-          <span slot="title">{{ item.children[0].meta.title }}</span>
-        </el-menu-item>
-      </template>
+      <side-bar-item
+        v-for="route in routes"
+        :key="route.path"
+        :sidebarItemRoute="route"
+        :base-path="route.path"
+      />
     </el-menu>
   </div>
 </template>
 
 <script>
+import SideBarItem from '../SideBarItem'
 export default {
   name: 'SideBarMenu',
+  components: {
+    SideBarItem
+  },
   created() {
-    console.log(this.routes)
+    console.log('routes', this.routes)
   },
   data() {
     return {}
   },
   computed: {
     routes() {
-      const {
-        options: { routes }
-      } = this.$router
-      // console.log(routes)
+      const routes = this.$router.options.routes.filter(item => !item.hidden)
       return routes
     },
     currentPath() {

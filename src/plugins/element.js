@@ -20,7 +20,8 @@ import {
   Dropdown,
   DropdownMenu,
   DropdownItem,
-  Upload
+  Upload,
+  Input
 } from 'element-ui'
 
 Vue.use(Button)
@@ -41,6 +42,7 @@ Vue.use(Dropdown)
 Vue.use(DropdownMenu)
 Vue.use(DropdownItem)
 Vue.use(Upload)
+Vue.use(Input)
 Vue.component(MessageBox)
 Vue.component(Message)
 Vue.component(Notification)
