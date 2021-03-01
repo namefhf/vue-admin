@@ -1,6 +1,12 @@
 <template>
   <div>
-    <el-menu :default-active="currentPath" router>
+    <el-menu
+      :default-active="currentPath"
+      router
+      background-color="#545c64"
+      text-color="#fff"
+      active-text-color="#409EFF"
+    >
       <side-bar-item
         v-for="route in routes"
         :key="route.path"

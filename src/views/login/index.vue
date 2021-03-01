@@ -13,7 +13,7 @@
           placeholder="密码"
         ></el-input>
         <div class="content_button">
-          <el-button type="primary" @click="SignIn">登录</el-button>
+          <el-button type="primary" @click="Login">登录</el-button>
         </div>
       </div>
     </div>
@@ -31,13 +31,13 @@ export default {
   name: 'LoginIndex',
   data() {
     return {
-      UserName: '',
+      UserName: 'admin',
       PassWord: '',
       options: { autoplay: true, speed: 0.5, loop: true, width: '500px' }
     }
   },
   methods: {
-    SignIn() {
+    Login() {
       let username = this.UserName
       let password = this.PassWord
       if (!username) {
@@ -53,11 +53,24 @@ export default {
         })
         return
       } else {
-        this.$message({
-          message: '登录成功！',
-          type: 'success'
-        })
-        this.$router.replace('/')
+        this.$store
+          .dispatch('user/login', {
+            username: this.UserName,
+            password: this.PassWord
+          })
+          .then(() => {
+            this.$message({
+              message: '登录成功！',
+              type: 'success'
+            })
+            this.$router.replace('/')
+          })
+          .catch(() => {
+            this.$message({
+              type: 'error',
+              message: '登录失败，请重新尝试'
+            })
+          })
       }
     }
   }

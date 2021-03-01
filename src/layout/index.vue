@@ -48,6 +48,7 @@ export default {
   align-items: center;
   justify-content: flex-end;
   box-shadow: 0px 0px 1px #000000;
+  // background-color: #494e53;
   .user-wrap {
     display: flex;
     align-items: center;
@@ -60,6 +61,10 @@ export default {
 }
 .el-aside {
   height: 100vh;
-  // width: auto !important;
+  background-color: rgb(84, 92, 100);
+}
+
+.el-main {
+  background-color: #f0f2f5;
 }
 </style>

@@ -3,8 +3,7 @@ import Vuex from 'vuex'
 import state from './state'
 import actions from './actions'
 import mutations from './mutations'
-// import user from './modules/user'
-// import { SET_USER } from './mutation-types'
+import getters from './getters'
 Vue.use(Vuex)
 const modulesFiles = require.context('./modules', true, /\.js$/)
 const modules = modulesFiles.keys().reduce((modules, modulePath) => {
@@ -18,8 +17,6 @@ export default new Vuex.Store({
   state,
   mutations,
   actions,
-  modules
-  // modules: {
-  //   user
-  // }
+  modules,
+  getters
 })

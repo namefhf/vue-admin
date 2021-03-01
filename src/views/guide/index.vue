@@ -14,7 +14,8 @@ export default {
     return {
       options: { autoplay: true, speed: 2.5, loop: true, width: '500px' }
     }
-  }
+  },
+  created() {}
 }
 </script>
 
