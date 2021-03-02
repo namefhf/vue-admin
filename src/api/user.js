@@ -15,3 +15,10 @@ export function getUserInfo(token) {
     }
   })
 }
+
+export function userLogout() {
+  return service({
+    url: '/user/logout',
+    method: 'post'
+  })
+}

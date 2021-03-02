@@ -91,7 +91,7 @@ export default {
   left: 50%;
   transform: translate(-50%, -50%);
   overflow: hidden;
-  transition: 1.5s;
+  z-index: 2;
 }
 
 .content_input {
@@ -125,5 +125,6 @@ export default {
   position: fixed;
   bottom: 0;
   right: 0;
+  z-index: 1;
 }
 </style>

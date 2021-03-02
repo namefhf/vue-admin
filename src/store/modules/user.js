@@ -1,5 +1,6 @@
-import { login, getUserInfo } from '@/api/user'
+import { login, getUserInfo, userLogout } from '@/api/user'
 import { getToken, setToken, removeToken } from '@/utils/auth'
+import { resetRouter } from '@/router'
 const namespaced = true
 const state = {
   token: getToken(),
@@ -63,6 +64,23 @@ const actions = {
       commit('setRoles', [])
       removeToken()
       resolve()
+    })
+  },
+  logout({ commit }) {
+    return new Promise((resolve, reject) => {
+      userLogout()
+        .then(() => {
+          commit('setToken', '')
+          removeToken()
+          commit('setName', '')
+          commit('setRoles', [])
+          // logout时要重置路由，否则重新以admin登录时会有警告：添加了重复的路由
+          resetRouter()
+          resolve()
+        })
+        .catch(error => {
+          reject(error)
+        })
     })
   }
 }

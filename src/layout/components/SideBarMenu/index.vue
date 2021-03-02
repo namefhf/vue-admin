@@ -18,6 +18,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import SideBarItem from '../SideBarItem'
 export default {
   name: 'SideBarMenu',
@@ -25,19 +26,19 @@ export default {
     SideBarItem
   },
   created() {
-    console.log('routes', this.routes)
+    this.routes = this.permissionRoutes.filter(r => !r.hidden)
+    console.log(this.routes)
   },
   data() {
     return {}
   },
   computed: {
-    routes() {
-      const routes = this.$router.options.routes.filter(item => !item.hidden)
-      return routes
-    },
     currentPath() {
       return this.$route.path
-    }
+    },
+    ...mapGetters({
+      permissionRoutes: 'permission_routes'
+    })
   },
   methods: {},
   watch: {

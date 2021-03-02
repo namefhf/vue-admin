@@ -19,10 +19,13 @@
 
             <el-dropdown-menu>
               <el-dropdown-item>仓库地址</el-dropdown-item>
-              <el-dropdown-item>退出登录</el-dropdown-item>
+              <el-dropdown-item @click.native="handleLogout">
+                退出登录
+              </el-dropdown-item>
             </el-dropdown-menu>
           </el-dropdown>
         </el-header>
+        <tags-view />
         <el-main>
           <el-card>
             <router-view />
@@ -35,9 +38,17 @@
 
 <script>
 import SideBarMenu from './components/SideBarMenu'
+import TagsView from './components/TagsView'
 export default {
   components: {
-    SideBarMenu
+    SideBarMenu,
+    TagsView
+  },
+  methods: {
+    async handleLogout() {
+      await this.$store.dispatch('user/logout')
+      this.$router.push('/login')
+    }
   }
 }
 </script>
