@@ -22,7 +22,8 @@ import {
   DropdownItem,
   Upload,
   Input,
-  Tag
+  Tag,
+  Pagination
 } from 'element-ui'
 
 Vue.use(Button)
@@ -45,6 +46,7 @@ Vue.use(DropdownItem)
 Vue.use(Upload)
 Vue.use(Input)
 Vue.use(Tag)
+Vue.use(Pagination)
 Vue.component(MessageBox)
 Vue.component(Message)
 Vue.component(Notification)

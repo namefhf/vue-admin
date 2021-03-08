@@ -9,7 +9,7 @@ const constantRoutes = [
         path: 'guide',
         name: 'Guide',
         component: () => import('@/views/guide'),
-        meta: { title: 'guide', icon: 'el-icon-s-promotion' }
+        meta: { title: 'guide', icon: 'el-icon-s-promotion', affix: true }
       }
     ]
   },
