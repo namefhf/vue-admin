@@ -4,7 +4,7 @@
       <el-aside>
         <side-bar-menu></side-bar-menu>
       </el-aside>
-      <el-container>
+      <el-container style="margin-left:300px;min-height: 100vh;">
         <el-header>
           <el-dropdown trigger="click">
             <div class="user-wrap">
@@ -72,6 +72,7 @@ export default {
 }
 .el-aside {
   height: 100vh;
+  position: fixed;
   background-color: rgb(84, 92, 100);
 }
 
