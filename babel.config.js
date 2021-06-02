@@ -1,4 +1,4 @@
-//在打包的时候，加入移除控制台输出插件
+// 在打包的时候，加入移除控制台输出插件
 const prodPlugins = []
 if (process.env.NODE_ENV === 'production') {
   prodPlugins.push('transform-remove-console')
