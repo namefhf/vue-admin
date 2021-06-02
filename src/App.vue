@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <keep-alive>
+      <router-view v-if="$route.meta.keepAlive"></router-view>
+    </keep-alive>
+    <router-view v-if="!$route.meta.keepAlive"></router-view>
   </div>
 </template>
 
@@ -10,6 +13,12 @@ export default {
   components: {},
   data() {
     return {}
+  },
+  created() {},
+  watch: {
+    $route(newValue, oldValue) {
+      console.log('$route:', this.$route)
+    }
   }
 }
 </script>

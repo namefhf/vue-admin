@@ -41,6 +41,19 @@ const constantRoutes = [
         name: 'vuex',
         component: () => import('@/views/vuex/'),
         meta: { title: 'vuex', icon: 'table' }
+      },
+      {
+        path: 'keepalive',
+        name: 'keepalive',
+        // component: {
+        //   render: h => h('h1', 'keepalive')
+        // },
+        component: () => import('@/views/keepalive'),
+        meta: {
+          title: 'keepalive',
+          icon: 'table',
+          keepAlive: true
+        }
       }
     ]
   }
