@@ -29,17 +29,17 @@ export default {
   mounted() {
     console.log('子mounted')
     this.$bus.$on('message', data => {
-      //接收值
+      // 接收值
       console.log(data)
       this.msg = data
     })
     this.$bus.$on('add', () => {
-      //接收事件
+      // 接收事件
       this.count++
     })
   },
   beforeDestroy() {
-    //移除监听
+    // 移除监听
     this.$bus.$off('message')
     this.$bus.$off('add')
   }

@@ -21,8 +21,8 @@ export default {
   methods: {
     send() {
       console.log('send')
-      this.$bus.$emit('message', '我是来自父组件的值') //传值
-      this.$bus.$emit('add') //传事件
+      this.$bus.$emit('message', '我是来自父组件的值') // 传值
+      this.$bus.$emit('add') // 传事件
     }
   },
   beforeCreate() {

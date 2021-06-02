@@ -48,7 +48,7 @@ export default {
   },
   methods: {
     handleRoute() {
-      //无子路由 递归结束
+      // 无子路由 递归结束
       if (!this.sidebarItemRoute.children) {
         this.showAsMenuItem = true
         this.menuItemRoute = {
@@ -57,11 +57,11 @@ export default {
         }
         return
       }
-      //取出hidden不为true的子路由
+      // 取出hidden不为true的子路由
       const showingChildrenRoutes = this.sidebarItemRoute.children.filter(
         item => !item.hidden
       )
-      //当只有一个子路由，并且这个子路由没有children属性时
+      // 当只有一个子路由，并且这个子路由没有children属性时
       if (
         showingChildrenRoutes.length === 1 &&
         !showingChildrenRoutes[0].children

@@ -38,20 +38,18 @@ export default {
   },
   methods: {
     Login() {
-      let username = this.UserName
-      let password = this.PassWord
+      const username = this.UserName
+      const password = this.PassWord
       if (!username) {
         this.$notify.error({
           title: '错误',
           message: '用户名不能为空'
         })
-        return
       } else if (!password) {
         this.$notify.error({
           title: '错误',
           message: '密码不能为空'
         })
-        return
       } else {
         this.$store
           .dispatch('user/login', {

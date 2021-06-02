@@ -27,27 +27,27 @@ const mutations = {
     state.cachedViews.splice(index, 1)
   },
   // 删除所有tag
-  DEL_ALL_VISITED_VIEWS: (state) => {
+  DEL_ALL_VISITED_VIEWS: state => {
     state.visitedViews = state.visitedViews.filter(v => v.meta.affix)
   },
-  DEL_ALL_CACHED_VIEW: (state) => {
+  DEL_ALL_CACHED_VIEW: state => {
     state.cachedViews = []
   }
 }
 
 const actions = {
   // 增加一个tag
-  addView ({ commit }, view) {
+  addView({ commit }, view) {
     commit('ADD_VISITED_VIEW', view)
     commit('ADD_CACHED_VIEW', view)
   },
   // 删除一个tag
-  delView ({ commit }, view) {
+  delView({ commit }, view) {
     commit('DEL_VISITED_VIEW', view)
     commit('DEL_CACHED_VIEW', view)
   },
   // 删除所有tag
-  delAllViews ({ commit }) {
+  delAllViews({ commit }) {
     commit('DEL_ALL_VISITED_VIEWS')
     commit('DEL_ALL_CACHED_VIEW')
   }

@@ -11,13 +11,13 @@ import { mapState, mapMutations, mapActions } from 'vuex'
 export default {
   computed: {
     ...mapState({
-      //访问模块内state
+      // 访问模块内state
       count: state => state.count
     })
   },
   methods: {
     ...mapMutations({
-      setUser: 'user/setUser' //访问模块内mutations
+      setUser: 'user/setUser' // 访问模块内mutations
     }),
     ...mapActions(['increment'])
   }

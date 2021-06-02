@@ -28,16 +28,16 @@ router.beforeEach(async (to, from, next) => {
   const token = getToken()
   if (token) {
     if (to.path === '/login') {
-      //访问登录页直接跳转到首页
+      // 访问登录页直接跳转到首页
       next({ path: '/' })
     } else {
-      //通过获取store roles来判断是否获取过用户信息
+      // 通过获取store roles来判断是否获取过用户信息
       const hasRoles = store.getters.roles && store.getters.roles.length > 0
       if (hasRoles) {
         next()
       } else {
         try {
-          //获取用户权限
+          // 获取用户权限
           const { roles } = await store.dispatch('user/getUserInfo')
           // console.log('roles', roles)
           // 生成可访问的异步路由
